@@ -21,21 +21,11 @@
   &__sidebar {
     background-color: #f4f6f8;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 120px);
     border-right: 1px solid #f1f1f1;
     padding: 60px 20px;
+    font-size: 14px;
   }
-  &__list {
-    li {
-      display: flex;
-      // align-items: center;
-      i {
-        width: 15px;
-      }
-    }
-  }
+  
 }
 
-i {
-  height: 25px;
-}
