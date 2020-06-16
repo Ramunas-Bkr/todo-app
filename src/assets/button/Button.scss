@@ -1,0 +1,15 @@
+button {
+    background: #4DD599;
+    border-radius: 4px;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background: darken($color: #4DD599, $amount: 10%);
+    }
+    &:active {
+        background: darken($color: #4DD599, $amount: 20%);
+    }
+}
