@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import List from "../List/List";
 import { Input } from "../../../assets/input/Input";
 import Button from "../../../assets/button/Button";
+import closeSvg from '../../../assets/images/times-circle-solid.svg'
 
 import "./AddButtonList.scss";
 import Badge from "../../Badge/Badge";
@@ -9,13 +10,13 @@ import Badge from "../../Badge/Badge";
 
 const AddButtonList = ({ colors }) => {
 
-  const [visiblePopup, setVisiblePopup] = useState(true);
+  const [visiblePopup, setVisiblePopup] = useState(false);
   const [selectColor, setSelectColor] = useState(colors[0].id);
 
   return (
     <div className="addList">
       <List
-        onClick={() => setVisiblePopup(true)}
+        onClick={() => setVisiblePopup(!visiblePopup)}
         items={[
           {
             className: "list__addButton",
@@ -43,6 +44,11 @@ const AddButtonList = ({ colors }) => {
       />
 
       {visiblePopup && <div className="addList__popup">
+        <img
+          onClick={() => setVisiblePopup(false)}
+          src={closeSvg}
+          className="addList__popup-close-btn"
+          alt="close button" />
         <Input placeholderName="Task name" />
         <div className="addList__popup-colors ">
           <ul>
