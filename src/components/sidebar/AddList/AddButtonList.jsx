@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import List from "../List/List";
-import { Input } from "../../../assets/input/Input";
+import "../../../assets/input/Input.scss";
 import Button from "../../../assets/button/Button";
 import closeSvg from '../../../assets/images/times-circle-solid.svg'
 
@@ -8,10 +8,27 @@ import "./AddButtonList.scss";
 import Badge from "../../Badge/Badge";
 
 
-const AddButtonList = ({ colors }) => {
+const AddButtonList = ({ colors, onAddList }) => {
 
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [selectColor, setSelectColor] = useState(colors[0].id);
+  const [inputValue, setInputValue] = useState('');
+
+  const addList = () => {
+    if (!inputValue) { 
+      alert('Add list name');
+      return;
+    }
+    onAddList({
+      "id": Math.random(),
+      "name": inputValue,
+      "colorId": selectColor,
+      "color": colors.filter(c => c.id === selectColor)[0].name
+    });
+    setVisiblePopup(false)
+    setInputValue('');
+    setSelectColor(colors[0].id)
+  }
 
   return (
     <div className="addList">
@@ -49,7 +66,15 @@ const AddButtonList = ({ colors }) => {
           src={closeSvg}
           className="addList__popup-close-btn"
           alt="close button" />
-        <Input placeholderName="Task name" />
+
+        <input
+          placeholder="Task name"
+          value={inputValue}
+          onChange={e => setInputValue(e.target.value)}
+          type="text"
+          className="field"
+        />
+
         <div className="addList__popup-colors ">
           <ul>
             <li>
@@ -58,15 +83,15 @@ const AddButtonList = ({ colors }) => {
                   <Badge
                     onClick={() => setSelectColor(color.id)}
                     key={color.id}
-                    color={color.name} 
+                    color={color.name}
                     className={selectColor === color.id && 'active'}
-                    />
+                  />
                 ))
               }
             </li>
           </ul>
         </div>
-        <Button buttonName="Add" />
+        <Button onClick={addList} buttonName="Add" />
       </div>}
     </div>
   );

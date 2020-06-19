@@ -1,9 +1,14 @@
 import React from 'react'
 import './Input.scss'
 
-export const Input = ({placeholderName}) => {
+export const Input = ({ placeholderName, inputValue, setValue }) => {
     return (
-        <input type="text" className="field" placeholder={placeholderName}>
-        </input>
+        <input
+            placeholder={placeholderName}
+            value={inputValue}
+            onChange={e => setValue(e.target.value)}
+            type="text"
+            className="field"
+        />
     )
 }
