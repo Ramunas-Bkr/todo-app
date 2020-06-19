@@ -1,4 +1,6 @@
 .list {
+  $self: &;
+
   margin-bottom: 30px;
 
   &__addButton {
@@ -14,6 +16,18 @@
     padding: 7px 12px;
     cursor: pointer;
 
+    &:hover #{$self}__removeIcon {
+      opacity: 0.2;
+    }
+
+    #{$self}__removeIcon {
+      opacity: 0;
+
+      &:hover {
+        opacity: 0.8;
+      } 
+    }
+
     &:hover {
       background: rgba(255, 255, 255, 0.5);
     }
@@ -22,6 +36,11 @@
       background: #fff;
       box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.04);
       border-radius: 4px;
+    }
+
+    span {
+      flex: 1;
+      padding-right: 3px;
     }
 
     .badge {
