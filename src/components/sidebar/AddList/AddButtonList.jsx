@@ -58,7 +58,7 @@ const AddButtonList = ({ colors, onAddList }) => {
                 ></path>
               </svg>
             ),
-            name: "Add task",
+            name: "Add list",
             active: false,
           },
         ]}
@@ -72,7 +72,7 @@ const AddButtonList = ({ colors, onAddList }) => {
           alt="close button" />
 
         <input
-          placeholder="Task name"
+          placeholder="List name"
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
           type="text"

@@ -30,10 +30,12 @@ function App() {
               active: false
             }
           ]} />
-        <List items={lists}
-            isRemovable
+        <List
+          onRemove={(list) => console.log(list)}
+          items={lists}
+          isRemovable
           />
-          <AddButtonList colors={DB.colors} onAddList={onAddList} />
+        <AddButtonList colors={DB.colors} onAddList={onAddList} />
         </div>
         <div className="tasks"></div>
             </div>
