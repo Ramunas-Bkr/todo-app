@@ -13,11 +13,14 @@ const Tasks = (props) => {
                     <img src={Pencil} alt="pencil" />
                 </h2>
                 <div className="tasks__items">
-                    <div className="checkbox">
-                        <input id="check" type="checkbox" />
-                        <label htmlFor="check">
-                            <img src={Check} alt="check" />
-                        </label>
+                    <div className="tasks__items-row">
+                        <div className="checkbox">
+                            <input id="check" type="checkbox" />
+                            <label htmlFor="check">
+                                <img src={Check} alt="check" />
+                            </label>
+                        </div>
+                        <p>ReactJS Hooks (useState, useReducer, useEffect and etc) </p>
                     </div>
                 </div>
             </div>

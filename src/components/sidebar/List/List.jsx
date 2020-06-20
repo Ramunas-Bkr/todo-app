@@ -8,7 +8,7 @@ import Badge from '../../Badge/Badge'
 const List = ({ items, isRemovable, onClick, onRemove }) => {
 
     const removeList = (item) => {
-        if (window.confirm('Are you sure want delete list?')) {
+        if (window.confirm('Are you sure want delete this list?')) {
             onRemove(item)
         }
     }
